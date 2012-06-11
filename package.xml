@@ -33,9 +33,6 @@
             <dir name="PHPBrowserMobProxy">
                 <file baseinstalldir="/" name="Client.php" role="php" />
             </dir>
-            <dir name="Tests">
-                <file baseinstalldir="/" name="ClientTest.php" role="test" />
-            </dir>
         </dir>
     </contents>
     <dependencies>
