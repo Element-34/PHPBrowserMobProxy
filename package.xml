@@ -48,6 +48,10 @@
                 <channel>pear.phpunit.de</channel>
                 <min>3.5.15</min>
             </package>
+            <package>
+                <name>Requests</name>
+                <uri>http://element-34.github.com/pear/get/Requests-1.7.0</uri>
+            </package>
         </required>
     </dependencies>
     <phprelease />
