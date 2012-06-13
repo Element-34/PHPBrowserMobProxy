@@ -56,28 +56,28 @@ class PHPBrowserMobProxy_Client {
 
   function new_har($label = '') {
     $data = "initialPageRef=" . $label;
-    $response = Requests::put($this->url . "/proxy/" . $this->port . "/har",
+    $response = Requests::put("http://" . $this->url . "/proxy/" . $this->port . "/har",
                               array(),
                               $data);
   }
 
   function new_page($label = '') {
     $data = "pageRef=" . $label;
-    $response = Requests::put($this->url . "/proxy/" . $this->port . "/har/pageRef",
+    $response = Requests::put("http://" . $this->url . "/proxy/" . $this->port . "/har/pageRef",
                               array(),
                               $data);
   }
 
   function whitelist($regexp, $status_code) {
     $data = $this->encode_array(array("regex" => $regexp, "status" => $status_code));
-    $response = Requests::put($this->url . "/proxy/" . $this->port . "/whitelist",
+    $response = Requests::put("http://" . $this->url . "/proxy/" . $this->port . "/whitelist",
                               array(),
                               $data);
   }
   
   function blacklist($regexp, $status_code) {
     $data = $this->encode_array(array("regex" => $regexp, "status" => $status_code));
-    $response = Requests::put($this->url . "/proxy/" . $this->port . "/blacklist",
+    $response = Requests::put("http://" . $this->url . "/proxy/" . $this->port . "/blacklist",
                               array(),
                               $data);
   }
@@ -92,7 +92,7 @@ class PHPBrowserMobProxy_Client {
       }
     }
     $data = $this->encode_array($options);
-    $response = Requests::put($this->url . "/proxy/" . $this->port . "/limit",
+    $response = Requests::put("http://" . $this->url . "/proxy/" . $this->port . "/limit",
                               array(),
                               $data);
   }
