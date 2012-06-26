@@ -16,10 +16,10 @@
         <email>adam@element34.ca</email>
         <active>yes</active>
     </lead>
-    <date>2012-06-11</date>
+    <date>2012-06-26</date>
     <version>
-        <release>1.0.1</release>
-        <api>1.0.1</api>
+        <release>1.0.2</release>
+        <api>1.0.2</api>
     </version>
     <stability>
         <release>stable</release>
@@ -38,7 +38,7 @@
     <dependencies>
         <required>
             <php>
-                <min>5.3.10</min>
+                <min>5.3.3</min>
             </php>
             <pearinstaller>
                 <min>1.9.4</min>
@@ -50,7 +50,7 @@
             </package>
             <package>
                 <name>Requests</name>
-                <uri>http://element-34.github.com/pear/get/Requests-1.7.0</uri>
+                <uri>http://element-34.github.com/pear/get/Requests-1.7.1</uri>
             </package>
         </required>
     </dependencies>
