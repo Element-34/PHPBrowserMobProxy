@@ -23,7 +23,7 @@ class PHPBrowserMobProxy_Client {
     switch($property) {
       case "har":
         $proxy_handle = curl_init();
-        curl_setopt($proxy_handle, CURLOPT_URL, $this->url . "/proxy/" . $this->port . "/har");
+        curl_setopt($proxy_handle, CURLOPT_URL, "http://" . $this->browsermob_url . "/proxy/" . $this->port . "/har");
         curl_setopt($proxy_handle, CURLOPT_RETURNTRANSFER, True);
         $result = curl_exec($proxy_handle);
         $decoded = json_decode($result, true);
@@ -56,28 +56,28 @@ class PHPBrowserMobProxy_Client {
 
   function new_har($label = '') {
     $data = "initialPageRef=" . $label;
-    $response = Requests::put("http://" . $this->url . "/proxy/" . $this->port . "/har",
+    $response = Requests::put("http://" . $this->browsermob_url . "/proxy/" . $this->port . "/har",
                               array(),
                               $data);
   }
 
   function new_page($label = '') {
     $data = "pageRef=" . $label;
-    $response = Requests::put("http://" . $this->url . "/proxy/" . $this->port . "/har/pageRef",
+    $response = Requests::put("http://" . $this->browsermob_url . "/proxy/" . $this->port . "/har/pageRef",
                               array(),
                               $data);
   }
 
   function whitelist($regexp, $status_code) {
     $data = $this->encode_array(array("regex" => $regexp, "status" => $status_code));
-    $response = Requests::put("http://" . $this->url . "/proxy/" . $this->port . "/whitelist",
+    $response = Requests::put("http://" . $this->browsermob_url . "/proxy/" . $this->port . "/whitelist",
                               array(),
                               $data);
   }
   
   function blacklist($regexp, $status_code) {
     $data = $this->encode_array(array("regex" => $regexp, "status" => $status_code));
-    $response = Requests::put("http://" . $this->url . "/proxy/" . $this->port . "/blacklist",
+    $response = Requests::put("http://" . $this->browsermob_url . "/proxy/" . $this->port . "/blacklist",
                               array(),
                               $data);
   }
@@ -92,13 +92,13 @@ class PHPBrowserMobProxy_Client {
       }
     }
     $data = $this->encode_array($options);
-    $response = Requests::put("http://" . $this->url . "/proxy/" . $this->port . "/limit",
+    $response = Requests::put("http://" . $this->browsermob_url . "/proxy/" . $this->port . "/limit",
                               array(),
                               $data);
   }
   
   function close() {
-    $response = Requests::delete("http://" . $this->url . "/" . $this->port);
+    $response = Requests::delete("http://" . $this->browsermob_url . "/" . $this->port);
   }
 }
 
