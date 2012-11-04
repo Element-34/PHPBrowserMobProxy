@@ -1,0 +1,23 @@
+{
+    "name": "element-34/PHPBrowserMobProxy",
+    "description": "BrowserMob Proxy client",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Adam Goucher",
+            "email": "adam@element34.ca",
+            "role": "Lead"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "rmccue/requests": "dev-master"
+    },
+    "require-dev": {
+        "phpunit/phpunit": ">=3.5.15"
+    },
+    "include-path": [
+        "vendor/rmccue/requests/library/",
+        "PHPBrowserMobProxy/"
+    ]
+}
