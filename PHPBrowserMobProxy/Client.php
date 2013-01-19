@@ -100,6 +100,13 @@ class PHPBrowserMobProxy_Client {
   function close() {
     $response = Requests::delete("http://" . $this->browsermob_url . "/" . $this->port);
   }
+
+  function headers($options) {
+    $data = json_encode($options);
+    $response = Requests::post("http://" . $this->browsermob_url . "/proxy/" . $this->port . "/headers",
+                                array('Content-Type' => 'application/json'),
+                                $data);
+  }
 }
 
 
