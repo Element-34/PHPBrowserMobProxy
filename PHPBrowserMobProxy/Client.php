@@ -107,6 +107,13 @@ class PHPBrowserMobProxy_Client {
                                 array('Content-Type' => 'application/json'),
                                 $data);
   }
+
+  function basic_auth($domain, $options) {
+    $data = json_encode($options);
+    $response = Requests::post("http://" . $this->browsermob_url . "/proxy/" . $this->port . "/auth/basic/" . $domain,
+                                array('Content-Type' => 'application/json'),
+                                $data);
+  }
 }
 
 
