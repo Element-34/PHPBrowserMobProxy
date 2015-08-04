@@ -4,13 +4,14 @@ require_once 'Requests.php';
 Requests::register_autoloader();
 
 class PHPBrowserMobProxy_Client {
-  function __construct($url) {
+  function __construct($url, $proxy = '') {
     $this->browsermob_url = $url;
 
     $parts = parse_url($this->browsermob_url);
     $this->hostname = $parts["host"];
-    
-    $response = Requests::post("http://" . $this->browsermob_url . "/proxy/");
+
+    $httpProxy = $proxy ? "?httpProxy=$proxy" : "";
+    $response = Requests::post("http://" . $this->browsermob_url . "/proxy/" . $httpProxy);
     
     $decoded = json_decode($response->body, true);
     if ($decoded) {
